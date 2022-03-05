@@ -47,15 +47,14 @@ namespace assignment {
 
   // Task 5
   int arr_sum(int *arr, int length) {
-    if (&arr == nullptr || length <= 0) {
+    if (arr == nullptr || length <= 0) {
       return 0;
-    } else {
+    }
       int sum = 0;
       for (int i = 0; i < length; i++) {
         sum += arr[i];
       }
       return sum;
-    }
   }
 
   // Task 6
@@ -81,13 +80,11 @@ namespace assignment {
   int *allocate_arr(int length, int init_value) {
     if (length <= 0) {
       return nullptr;
-    } else {
-      int arr[length];
-      for (int i = 0; i < length; i++) {
-        arr[i] = init_value;
-      };
-      return 0;
+
     }
+      int* arr = new int[length];
+      std::fill(arr, arr + length, init_value);
+      return arr;
   }
 
   // Task 8
@@ -96,10 +93,8 @@ namespace assignment {
       return nullptr;
     }
 
-      int arr_copy[length];
-      for (int i = 0; i < length; i++){
-        arr_copy[i] = arr_in[i];
-      }
+      int* arr_copy = new int[length];
+      std::copy(arr_in, arr_in + length, arr_copy);
       return arr_copy;
   }
 
