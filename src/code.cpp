@@ -26,7 +26,6 @@ namespace assignment {
       return result;
       }
     }
-  }
 
   // Task 3
   int max3(int left, int middle, int right) {
