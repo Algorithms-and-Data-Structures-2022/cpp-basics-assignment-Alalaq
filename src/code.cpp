@@ -13,10 +13,9 @@ namespace assignment {
 
   // Task 2
   bool check_bit(int mask, int bit_pos) {
-    if (mask < 0 || bit_pos < 0){
+    if (mask < 0 || bit_pos < 0) {
       return false;
-    }
-    else{
+    } else {
       bool result;
       if ((mask & (1 << bit_pos)) == 0) {
         result = false;
@@ -24,8 +23,8 @@ namespace assignment {
         result = true;
       }
       return result;
-      }
     }
+  }
 
   // Task 3
   int max3(int left, int middle, int right) {
@@ -36,25 +35,23 @@ namespace assignment {
 
   // Task 4
   void swap_args(int *left, int *right) {
-    if (left == nullptr || right == nullptr){
-      std::cout<<"left = " << left << ", right = " << right;
-    }
-    else{
+    if (left == nullptr || right == nullptr) {
+      std::cout << "left = " << left << ", right = " << right;
+    } else {
       int temp = *right;
       *right = *left;
       *left = temp;
-      std::cout<<"left = " << left << ", right = " << right;
+      std::cout << "left = " << left << ", right = " << right;
     }
   }
 
   // Task 5
   int arr_sum(int *arr, int length) {
-    if (&arr == nullptr || length <= 0){
+    if (&arr == nullptr || length <= 0) {
       return 0;
-    }
-    else{
+    } else {
       int sum = 0;
-      for (int i = 0; i < length; i++){
+      for (int i = 0; i < length; i++) {
         sum += arr[i];
       }
       return sum;
@@ -63,30 +60,30 @@ namespace assignment {
 
   // Task 6
   int *find_max_elem(int *arr, int length) {
-    if (arr == nullptr || length <= 0){
+    if (arr == nullptr || length <= 0) {
       return 0;
     }
-    else{
-      int max = 0;
-      int* pointer;
-      for (int i = 0; i < length; i++){
-        if (arr[i] > max){
-          max = arr[i];
-          pointer = &arr[i];
-        }
+    int max = arr[0];
+    for (int i = 0; i < length; i++) {
+      if (arr[i] > max) {
+        max = arr[i];
       }
-      return pointer;
+    }
+
+    for (int i = 0; i < length; i++) {
+      if (arr[i] == max) {
+        return &arr[i];
+      }
     }
   }
 
   // Task 7
   int *allocate_arr(int length, int init_value) {
-    if (length <= 0){
+    if (length <= 0) {
       return nullptr;
-    }
-    else{
+    } else {
       int arr[length];
-      for (int i = 0; i < length; i++){
+      for (int i = 0; i < length; i++) {
         arr[i] = init_value;
       };
       return 0;
@@ -95,38 +92,39 @@ namespace assignment {
 
   // Task 8
   int *clone_arr(int *arr_in, int length) {
-    if (length <= 0){
+    if (length <= 0 || arr_in == nullptr) {
       return nullptr;
     }
-    else{
+
       int arr_copy[length];
-      std::copy(arr_in, arr_in + length, arr_copy);
-      ;
-    }
+      for (int i = 0; i < length; i++){
+        arr_copy[i] = arr_in[i];
+      }
+      return arr_copy;
   }
 
   // Task 9
   void print_kth_elements(int *arr, int length, int k, std::ostream &os) {
-    if (arr == nullptr){
-      os<<"Invalid argument: arr\n";
+    if (arr == nullptr) {
+      os << "Invalid argument: arr\n";
       return;
     }
 
-    if (length <= 0){
-      os<<"Invalid argument: length\n";
+    if (length <= 0) {
+      os << "Invalid argument: length\n";
       return;
     }
 
-    if (k <= 0){
-      os<<"Invalid argument: k\n";
+    if (k <= 0) {
+      os << "Invalid argument: k\n";
       return;
     }
 
-      for (int i = 0; i < length; i++){
-        if (i % k == 0){
-          std::cout<<arr[i]<<"\t";
-        }
+    for (int i = 0; i < length; i++) {
+      if (i % k == 0) {
+        os << arr[i] << "\t";
       }
+    }
   }
 
 }  // namespace assignment
