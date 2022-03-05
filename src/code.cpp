@@ -86,8 +86,10 @@ namespace assignment {
     }
     else{
       int arr[length];
-      std::fill(arr, arr + length, init_value);
-      return arr;
+      for (int i = 0; i < length; i++){
+        arr[i] = init_value;
+      };
+      return 0;
     }
   }
 
@@ -99,13 +101,32 @@ namespace assignment {
     else{
       int arr_copy[length];
       std::copy(arr_in, arr_in + length, arr_copy);
-      return arr_copy;
+      ;
     }
   }
 
   // Task 9
   void print_kth_elements(int *arr, int length, int k, std::ostream &os) {
+    if (arr == nullptr){
+      os<<"Invalid argument: arr\n";
+      return;
+    }
 
+    if (length <= 0){
+      os<<"Invalid argument: length\n";
+      return;
+    }
+
+    if (k <= 0){
+      os<<"Invalid argument: k\n";
+      return;
+    }
+
+      for (int i = 0; i < length; i++){
+        if (i % k == 0){
+          std::cout<<arr[i]<<"\t";
+        }
+      }
   }
 
 }  // namespace assignment
