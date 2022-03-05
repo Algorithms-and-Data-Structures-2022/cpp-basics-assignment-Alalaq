@@ -63,20 +63,19 @@ namespace assignment {
 
   // Task 6
   int *find_max_elem(int *arr, int length) {
-    if (arr == nullptr || length <= 0) {
+    if (arr == nullptr || length <= 0){
       return 0;
-    } else {
+    }
+    else{
       int max = 0;
-      for (int i = 0; i < length; i++) {
-        if (arr[i] > max) {
+      int* pointer;
+      for (int i = 0; i < length; i++){
+        if (arr[i] > max){
           max = arr[i];
+          pointer = &arr[i];
         }
       }
-      for (int i = 0; i < length; i++) {
-        if (arr[i] == max) {
-          return &arr[i];
-        }
-      }
+      return pointer;
     }
   }
 
